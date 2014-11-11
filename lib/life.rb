@@ -28,17 +28,37 @@ class Grid
     end
   end
 
+  private
+
   def live_neighbour_count_at(x, y)
     num_alive = 0
-    (x - 1..x + 1).each do |other_x|
-      next if other_x >= @width || other_x < 0
-      (y - 1..y + 1).each do |other_y|
-        next if other_y >= @height || other_y < 0
-        next if other_x == x && other_y == y
-        num_alive += 1 if cell_at(x: other_x, y: other_y).alive?
-      end
+    each_neighbour(x, y) do |other_x, other_y|
+      num_alive += 1 if cell_at(x: other_x, y: other_y).alive?
     end
     num_alive
+  end
+
+  def each_neighbour(x, y)
+    horizontal_neighbour_range(x).each do |other_x|
+      next if other_x >= @width || other_x < 0
+      vertical_neighbour_range(y).each do |other_y|
+        next if other_y >= @height || other_y < 0
+        next if other_x == x && other_y == y
+        yield other_x, other_y
+      end
+    end
+  end
+
+  def vertical_neighbour_range(y)
+    start = [0, y - 1].max
+    finish = [@height, y + 1].min
+    start..finish
+  end
+
+  def horizontal_neighbour_range(x)
+    start = [0, x - 1].max
+    finish = [@width, x + 1].min
+    start..finish
   end
 end
 
