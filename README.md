@@ -13,3 +13,20 @@
 - Cells at the edge have fewer neighbours. The missing neighbours are
   considered dead.
 - ALT: The grid wraps around at the edges, so forms a torus.
+
+## Examples
+
+Try some classic life patterns:
+
+<pre>
+      .*.    ...    .*.
+      .*. -> *** -> .*.
+      .*.    ...    .*.
+</pre>
+
+<pre>
+      ....    ....
+      .**. -> .**.
+      .**.    .**.
+      ....    ....
+</pre>
