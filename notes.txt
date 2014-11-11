@@ -23,3 +23,14 @@ Design choices:
 
 If the cells are immutable we can return the same dead cell for each dead
 location on the grid, and the same for live cells.
+
+## Update rules
+
+Is 'a cell has 8 neighbours' a testable statement? If we ask the grid for
+neighbours, how do we represent them? In this case, I have chosen to skip this
+step and go straight to the update rules. I could have applied the same
+heuristic for the rectangular grid requirement.
+
+It is important here to keep implementing as little as possible.
+
+How do we test all possible configurations?
