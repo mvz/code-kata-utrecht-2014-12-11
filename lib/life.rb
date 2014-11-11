@@ -11,14 +11,7 @@ class Grid
   end
 
   def update
-    num_alive = Array.new(@width) { Array.new(@height) }
-
-    @width.times do |x|
-      @height.times do |y|
-        num_alive[x][y] = live_neighbour_count_at(x, y)
-      end
-    end
-
+    num_alive = live_neighbour_count_array
     @width.times do |x|
       @height.times do |y|
         live_neighbours = num_alive[x][y]
@@ -29,6 +22,18 @@ class Grid
   end
 
   private
+
+  def live_neighbour_count_array
+    num_alive = Array.new(@width) { Array.new(@height) }
+
+    @width.times do |x|
+      @height.times do |y|
+        num_alive[x][y] = live_neighbour_count_at(x, y)
+      end
+    end
+
+    num_alive
+  end
 
   def live_neighbour_count_at(x, y)
     num_alive = 0
