@@ -113,4 +113,12 @@ class LifeTest < MiniTest::Test
       assert grid.cell_at(x: 2, y: y).dead?, "cell 2, #{y} should be dead"
     end
   end
+
+  def test_to_s
+    grid = Grid.new(x: 3, y: 3)
+    3.times { |x| grid.cell_at(x: x, y: 1).live }
+    assert_equal "...\n***\n...", grid.to_s
+    grid.update
+    assert_equal ".*.\n.*.\n.*.", grid.to_s
+  end
 end

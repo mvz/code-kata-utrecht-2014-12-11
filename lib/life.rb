@@ -19,6 +19,14 @@ class Grid
     end
   end
 
+  def to_s
+    @height.times.map { |y|
+      @width.times.map { |x|
+        cell_at(x: x, y: y).to_s
+      }.join
+    }.join("\n")
+  end
+
   private
 
   def each_cell_location
@@ -85,5 +93,9 @@ class Cell
 
   def die
     @alive = false
+  end
+
+  def to_s
+    alive? ? '*' : '.'
   end
 end
