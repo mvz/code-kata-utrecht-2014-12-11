@@ -101,4 +101,15 @@ class LifeTest < MiniTest::Test
     grid.update
     assert grid.cell_at(x: 0, y: 0).dead?
   end
+
+  def test_flip_flop
+    grid = Grid.new(x: 3, y: 3)
+    3.times { |x| grid.cell_at(x: x, y: 1).live }
+    grid.update
+    3.times do |y|
+      assert grid.cell_at(x: 0, y: y).dead?, "cell 0, #{y} should be dead"
+      assert grid.cell_at(x: 1, y: y).alive?, "cell 1, #{y} should be alive"
+      assert grid.cell_at(x: 2, y: y).dead?, "cell 2, #{y} should be dead"
+    end
+  end
 end

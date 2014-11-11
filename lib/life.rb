@@ -31,8 +31,10 @@ class Grid
 
   def live_neighbour_count_at(x, y)
     num_alive = 0
-    3.times do |other_x|
-      3.times do |other_y|
+    (x-1..x+1).each do |other_x|
+      next if other_x >= @width || other_x < 0
+      (y-1..y+1).each do |other_y|
+        next if other_y >= @height || other_y < 0
         next if other_x == x && other_y == y
         num_alive += 1 if cell_at(x: other_x, y: other_y).alive?
       end
