@@ -33,4 +33,7 @@ heuristic for the rectangular grid requirement.
 
 It is important here to keep implementing as little as possible.
 
-How do we test all possible configurations?
+How do we test all possible configurations? We may not need to. The goal is not
+to test all configurations, but to guide design. By adding at each step a
+failing test, you get most bang for your tests. At some point, the next failing
+test will force you to generalize the design.
