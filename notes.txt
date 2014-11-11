@@ -58,4 +58,4 @@ Try some classic life patterns.
   design to make this easier?
 - Can you update cells right under the grid's nose? Is that a good thing?
 
-
+- Are there any methods that should become private? Why?
