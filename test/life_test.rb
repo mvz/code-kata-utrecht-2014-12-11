@@ -25,4 +25,12 @@ class LifeTest < MiniTest::Test
     assert grid.cell_at(x: 2, y: 2).alive?
     assert grid.cell_at(x: 1, y: 0).dead?
   end
+
+  def test_update_living_cell_no_neightbours
+    grid = Grid.new(x: 3, y: 3)
+    grid.cell_at(x: 1, y: 1).live
+    assert grid.cell_at(x: 1, y: 1).alive?
+    grid.update
+    assert grid.cell_at(x: 1, y: 1).dead?
+  end
 end

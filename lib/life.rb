@@ -8,6 +8,10 @@ class Grid
   def cell_at x:, y:
     @cells[x][y] ||= Cell.new
   end
+
+  def update
+    cell_at(x: 1, y: 1).die
+  end
 end
 
 class Cell
