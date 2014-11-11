@@ -10,7 +10,14 @@ class Grid
   end
 
   def update
-    cell_at(x: 1, y: 1).die unless cell_at(x: 1, y: 0).alive? && cell_at(x: 0, y:0).alive?
+    num_alive = 0
+    3.times do |x|
+      3.times do |y|
+        next if x == 1 && y == 1
+        num_alive += 1 if cell_at(x: x, y: y).alive?
+      end
+    end
+    cell_at(x: 1, y: 1).die unless num_alive > 1
   end
 end
 
