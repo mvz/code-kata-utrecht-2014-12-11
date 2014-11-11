@@ -45,3 +45,17 @@ How do you test that all cells are updated?
 Just testing one other cell forced me to update all cells simultaneously.
 
 Try some classic life patterns.
+
+
+## Think about:
+
+- Who knows about the rules? What other options are there?
+  - The grid?
+  - The cell?
+  - An external ruler?
+- What would you change about the design?
+- How hard is it to create system with different rules? Can you change the
+  design to make this easier?
+- Can you update cells right under the grid's nose? Is that a good thing?
+
+
