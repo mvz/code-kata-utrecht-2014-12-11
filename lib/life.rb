@@ -1,13 +1,12 @@
-# Your code goes here
-
+# Grid of cells
 class Grid
-  def initialize x: nil, y: nil
+  def initialize(x: nil, y: nil)
     @cells = Array.new(x) { Array.new(y) }
     @width = x
     @height = y
   end
 
-  def cell_at x:, y:
+  def cell_at(x:, y:)
     @cells[x][y] ||= Cell.new
   end
 
@@ -24,25 +23,26 @@ class Grid
       @height.times do |y|
         live_neighbours = num_alive[x][y]
         cell_at(x: x, y: y).live if live_neighbours == 3
-        cell_at(x: x, y: y).die unless live_neighbours > 1 && live_neighbours < 4
+        cell_at(x: x, y: y).die unless [2, 3].include? live_neighbours
       end
     end
   end
 
   def live_neighbour_count_at(x, y)
     num_alive = 0
-    (x-1..x+1).each do |other_x|
+    (x - 1..x + 1).each do |other_x|
       next if other_x >= @width || other_x < 0
-      (y-1..y+1).each do |other_y|
+      (y - 1..y + 1).each do |other_y|
         next if other_y >= @height || other_y < 0
         next if other_x == x && other_y == y
         num_alive += 1 if cell_at(x: other_x, y: other_y).alive?
       end
     end
-    return num_alive
+    num_alive
   end
 end
 
+# Represent single cell, dead or alive.
 class Cell
   def dead?
     !@alive

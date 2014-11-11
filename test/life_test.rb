@@ -1,6 +1,7 @@
 require 'test_helper'
 require 'life'
 
+# Test the game of life
 class LifeTest < MiniTest::Test
   def test_rectangular_grid
     grid = Grid.new(x: 4, y: 3)
