@@ -17,6 +17,7 @@ class Grid
         num_alive += 1 if cell_at(x: x, y: y).alive?
       end
     end
+    cell_at(x: 1, y: 1).live if num_alive == 3
     cell_at(x: 1, y: 1).die unless num_alive > 1 && num_alive < 4
   end
 end
