@@ -2,11 +2,11 @@
 
 class Grid
   def initialize x: nil, y: nil
-
+    @cells = Array.new(x) { Array.new(y) }
   end
 
   def cell_at x:, y:
-    Cell.new
+    @cells[x][y] ||= Cell.new
   end
 end
 

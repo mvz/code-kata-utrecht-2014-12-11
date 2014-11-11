@@ -18,4 +18,11 @@ class LifeTest < MiniTest::Test
     assert cell.dead?
     refute cell.alive?
   end
+
+  def test_cells_in_grid_are_persistent
+    grid = Grid.new(x: 3, y: 3)
+    grid.cell_at(x: 2, y: 2).live
+    assert grid.cell_at(x: 2, y: 2).alive?
+    assert grid.cell_at(x: 1, y: 0).dead?
+  end
 end
