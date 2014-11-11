@@ -11,5 +11,19 @@ class Grid
 end
 
 class Cell
+  def dead?
+    !@alive
+  end
 
+  def alive?
+    @alive
+  end
+
+  def live
+    @alive = true
+  end
+
+  def die
+    @alive = false
+  end
 end
