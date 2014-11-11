@@ -37,3 +37,11 @@ How do we test all possible configurations? We may not need to. The goal is not
 to test all configurations, but to guide design. By adding at each step a
 failing test, you get most bang for your tests. At some point, the next failing
 test will force you to generalize the design.
+
+How do you test that all cells are updated?
+
+## Simultaneous updates
+
+Just testing one other cell forced me to update all cells simultaneously.
+
+Try some classic life patterns.
