@@ -12,24 +12,28 @@ class Grid
 
   def update
     num_alive = live_neighbour_count_array
-    @width.times do |x|
-      @height.times do |y|
-        live_neighbours = num_alive[x][y]
-        cell_at(x: x, y: y).live if live_neighbours == 3
-        cell_at(x: x, y: y).die unless [2, 3].include? live_neighbours
-      end
+    each_cell_location do |x, y|
+      live_neighbours = num_alive[x][y]
+      cell_at(x: x, y: y).live if live_neighbours == 3
+      cell_at(x: x, y: y).die unless [2, 3].include? live_neighbours
     end
   end
 
   private
 
+  def each_cell_location
+    @width.times do |x|
+      @height.times do |y|
+        yield x, y
+      end
+    end
+  end
+
   def live_neighbour_count_array
     num_alive = Array.new(@width) { Array.new(@height) }
 
-    @width.times do |x|
-      @height.times do |y|
-        num_alive[x][y] = live_neighbour_count_at(x, y)
-      end
+    each_cell_location do |x, y|
+      num_alive[x][y] = live_neighbour_count_at(x, y)
     end
 
     num_alive
