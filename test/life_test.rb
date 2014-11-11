@@ -93,4 +93,12 @@ class LifeTest < MiniTest::Test
     grid.update
     assert grid.cell_at(x: 1, y: 1).alive?
   end
+
+  def test_update_updates_all_cells
+    grid = Grid.new(x: 3, y: 3)
+    grid.cell_at(x: 0, y: 0).live
+    assert grid.cell_at(x: 0, y: 0).alive?
+    grid.update
+    assert grid.cell_at(x: 0, y: 0).dead?
+  end
 end
