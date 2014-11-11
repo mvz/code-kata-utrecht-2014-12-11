@@ -49,9 +49,7 @@ class Grid
 
   def each_neighbour(x, y)
     horizontal_neighbour_range(x).each do |other_x|
-      next if other_x >= @width || other_x < 0
       vertical_neighbour_range(y).each do |other_y|
-        next if other_y >= @height || other_y < 0
         next if other_x == x && other_y == y
         yield other_x, other_y
       end
@@ -60,13 +58,13 @@ class Grid
 
   def vertical_neighbour_range(y)
     start = [0, y - 1].max
-    finish = [@height, y + 1].min
+    finish = [@height - 1, y + 1].min
     start..finish
   end
 
   def horizontal_neighbour_range(x)
     start = [0, x - 1].max
-    finish = [@width, x + 1].min
+    finish = [@width - 1, x + 1].min
     start..finish
   end
 end
