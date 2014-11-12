@@ -5,7 +5,7 @@
 - Rectangular grid of cells.
 - Cells can be dead or alive.
 - For each cell, consider its 8 neighbours.
-- A living cell stays alive if it has 2 or 3 (?or 4?) living neighbours.
+- A living cell stays alive if it has 2 or 3 living neighbours.
   Otherwise, it becomes dead.
 - A dead cell becomes alive if it has exactly 3 living neighbours. Otherwise,
   it stays dead.
