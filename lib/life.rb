@@ -27,6 +27,12 @@ class Grid
     }.join("\n")
   end
 
+  def each_cell
+    each_cell_location do |x, y|
+      yield cell_at(x: x, y: y)
+    end
+  end
+
   private
 
   def each_cell_location
