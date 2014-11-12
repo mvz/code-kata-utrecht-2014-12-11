@@ -30,3 +30,11 @@ Try some classic life patterns:
       .**.    .**.
       ....    ....
 </pre>
+
+## Output
+
+- Write a #to_s to display the grid (test driven).
+- Write a runner to run and display generations on the terminal. This should be
+  simple enough not to need tests.
+  - Can you make it stop once the board stops changing
+  - Can you slow it down?
