@@ -10,16 +10,18 @@ grid.each_cell do |cell|
 end
 
 current_s = grid.to_s
+prev_s = nil
 puts grid
 
 500.times do |i|
+  prev_prev_s = prev_s
   prev_s = current_s
   grid.update
-  sleep 0.1
+  sleep 0.05
   puts '-' * WIDTH
   puts i
   puts '-' * WIDTH
   current_s = grid.to_s
   puts grid
-  break if current_s == prev_s
+  break if current_s == prev_s || current_s == prev_prev_s
 end
