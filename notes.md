@@ -1,13 +1,9 @@
-## Rectangular Grid
+First session: 19:40-20:10
 
-How do you test a rectangular grid? What are its properties?
+Boolean? State? Predicates?
 
-Perhaps we can only test persistence after the cells gain distinguishing
-characteristics. We could use object_id, but that is also a design choice: We
-only need the grid to return the same value, and shouldn't really care if it's
-the same object.
+Did you first design the whole thing or start at the top?
 
-Vice versa, the grid could return the same cell for every location.
 
 ## Cells can be dead or alive
 
@@ -23,6 +19,17 @@ Design choices:
 
 If the cells are immutable we can return the same dead cell for each dead
 location on the grid, and the same for live cells.
+
+## Rectangular Grid
+
+How do you test a rectangular grid? What are its properties?
+
+Perhaps we can only test persistence after the cells gain distinguishing
+characteristics. We could use object_id, but that is also a design choice: We
+only need the grid to return the same value, and shouldn't really care if it's
+the same object.
+
+Vice versa, the grid could return the same cell for every location.
 
 ## Update rules
 
